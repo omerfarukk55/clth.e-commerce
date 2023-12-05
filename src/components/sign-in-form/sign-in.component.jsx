@@ -1,17 +1,18 @@
 import { useState } from "react";
 import {
-  createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
+  signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form.input.component";
-import "./sign-in-form.styles.scss";
+import "./sign-in-form.scss";
 import Button from "../button/button.component";
 
+
 const defaultFormFields = {
-  displayName: "",
+ 
   email: "",
   password: "",
-  confirmPassword: "",
+
 };
 
 const SignInForm = () => {
@@ -19,30 +20,21 @@ const SignInForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
-  const { displayName, email, password, confirmPassword } = formFields;
-  console.log(formFields);
+  const {  email, password } = formFields;
+
   const handleSubmit = async (event) => {
     event.preventDefault(); // Etkinlik nesnesini almak için fonksiyon parametresini ekledik
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+    
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
-
       console.log("User created successfully");
     } catch (error) {
-      if (error.code === "auth/email-already-in-use") {
-        alert("cannot create user,email already in use");
-      } else {
-        console.log("User creation encountered an error", error);
-      }
+     
     }
+  };
+  const signInWithGoogle = async()=>{
+    const {user} = await signInWithGooglePopup();
+    await createUserDocumentFromAuth(user);
   };
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -50,21 +42,10 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
   return (
-    <div className="sign-up-container">
-    <h2>Don't have an account?</h2>
-      <span>Sign up with your email and password</span>
+    <div className="sign-in-container">
+      <span>Already have an account </span>
+      <h2>Sign in with your email and password</h2>
       <form onSubmit={handleSubmit}>
-        
-        <FormInput
-          label="Display Name"
-          type="test"
-          required
-          onChange={handleChange}
-          name="displayName"
-          value={displayName}
-        />
-
-        
         <FormInput
         label="Email"
           type="email"
@@ -73,8 +54,6 @@ const SignInForm = () => {
           name="email"
           value={email}
         />
-
-        
         <FormInput
         label="Password"
           type="password"
@@ -83,16 +62,11 @@ const SignInForm = () => {
           name="password"
           value={password}
         />
-        <FormInput
-        label = "Confirm Password"
-          type="password"
-          required
-          onChange={handleChange}
-          name="confirmPassword"
-          value={confirmPassword}
-        />
-        <Button  type="submit">Sign Up</Button>
+
+        <Button  type="submit">Sign In</Button>
+       
       </form>
+      <Button  oneClick = {signInWithGoogle}>Google Sign In</Button>
     </div>
   );
 };
