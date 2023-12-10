@@ -20,8 +20,8 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
   
-  const userContext = useContext(UserContext); // UserContext, UserContext'inizin adı olarak varsayılan olarak kullanıldıysa değiştirilebilir
-const { setCurrentUser } = userContext;
+  // UserContext, UserContext'inizin adı olarak varsayılan olarak kullanıldıysa değiştirilebilir
+const { setCurrentUser } = useContext(UserContext);
   
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -42,11 +42,17 @@ const { setCurrentUser } = userContext;
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
+          resetFormFields();
           alert("yanlış şifre");
+          break;
         case "auth/invalid-login-credentials":
-          alert("kullanıcı bulunamadı");
+          resetFormFields();  
+        alert("kullanıcı bulunamadı");
+          break;
         default:
+          resetFormFields();
           console.log(error);
+          
       }
     }
   };
