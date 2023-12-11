@@ -36,8 +36,6 @@ const { setCurrentUser } = useContext(UserContext);
         email,
         password
         );
-        setCurrentUser(user);
-
     resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -58,7 +56,7 @@ const { setCurrentUser } = useContext(UserContext);
   };
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    
   };
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -67,8 +65,8 @@ const { setCurrentUser } = useContext(UserContext);
   };
   return (
     <div className="sign-in-container">
-      <span>Already have an account </span>
-      <h2>Sign in with your email and password</h2>
+      <span>Hesabınız zaten var mı </span>
+      <h2>Email ve Şifre ile Giriş yapınız </h2>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Email"
@@ -87,7 +85,7 @@ const { setCurrentUser } = useContext(UserContext);
         <div className="buttons-container">
           <Button type="submit">giriş</Button>
           <Button buttonType="google" onClick={signInWithGoogle}>
-            Google Sign In
+            GOOGLA İLE GİRİŞ
           </Button>
         </div>
       </form>

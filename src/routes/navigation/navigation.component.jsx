@@ -23,7 +23,7 @@ const Navigation = () => {
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
-            Shop
+            Alışveriş
           </Link>
           {
             currentUser ? (
