@@ -1,8 +1,8 @@
-import { useState,useContext } from "react";
+import { useState } from "react";
 import FormInput from "../form-input/form.input.component";
 import Button from "../button/button.component";
 
-import { UserContext } from "../../contexts/user.context";
+
 
 import {
   createUserDocumentFromAuth,
@@ -21,7 +21,7 @@ const SignInForm = () => {
   const { email, password } = formFields;
   
   // UserContext, UserContext'inizin adı olarak varsayılan olarak kullanıldıysa değiştirilebilir
-const { setCurrentUser } = useContext(UserContext);
+
   
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -55,7 +55,7 @@ const { setCurrentUser } = useContext(UserContext);
     }
   };
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
+    await signInWithGooglePopup();
     
   };
   const handleChange = (event) => {

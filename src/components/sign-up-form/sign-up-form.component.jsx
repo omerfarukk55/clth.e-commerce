@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -6,7 +6,6 @@ import {
 import FormInput from "../form-input/form.input.component";
 import "./sign-up-form.styles.scss";
 import Button from "../button/button.component";
-import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
   displayName: "",
@@ -22,7 +21,7 @@ const SignUpForm = () => {
   };
   const { displayName, email, password, confirmPassword } = formFields;
   
-  const {setCurrentUser} = useContext(UserContext);
+
   
   const handleSubmit = async (event) => {
     event.preventDefault(); // Etkinlik nesnesini almak için fonksiyon parametresini ekledik
@@ -35,7 +34,7 @@ const SignUpForm = () => {
         email,
         password
       );
-      setCurrentUser(user);
+   
 
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
