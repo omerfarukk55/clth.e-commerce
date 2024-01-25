@@ -7,6 +7,9 @@ import Checkout from "./routes/checkout/checkout.Component";
 
 
 
+
+
+
 const App = () => {
   return (
     <div>
