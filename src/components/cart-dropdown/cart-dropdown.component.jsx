@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/cart.context";
 
 import React from "react";
-import Button from "../button/button.component";
-import "./cart-dropdown.style.scss";
+import Button ,{BUTTON_TYPE_CLASSES} from "../button/button.component";
+import  {CartDropdownContainer, CartItemcontent , emptyMesage} from "./cart-dropdown.style";
 import CartItem from "../cart-item/cart-item.component";
 
 const CartDropdown = () => {
@@ -16,15 +16,17 @@ const CartDropdown = () => {
   };
 
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">
-        {cartItems.map((item) => (
+    <CartDropdownContainer>
+      <CartItemcontent>
+        {cartItems.length ? (cartItems.map((item) => (
           <CartItem key={item.id} cartItem={item} />
-        ))}
-      </div>
-      <Button onClick={goToCheckouthandler}> SEPETİ KONTROL ET </Button>
-    </div>
+        ))):<emptyMesage> sepetiniz boştur   </emptyMesage>
+      }
+      </ CartItemcontent>
+      <Button  onClick={goToCheckouthandler}> SEPETİ KONTROL ET </Button>
+    </CartDropdownContainer>
   );
+  
 };
 
 export default CartDropdown;
