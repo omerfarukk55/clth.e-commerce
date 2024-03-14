@@ -33,10 +33,10 @@ export const Arrow = styled.div`
 `;
 
 export const Value = styled.span`
-  margin: 0 10px;
+  margin: 2px 10px;
 `;
 
 export const RemoveButton = styled.div`
-  padding-left: 12px;
+  padding-left: 100px;
   cursor: pointer;
 `;

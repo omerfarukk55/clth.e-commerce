@@ -25,7 +25,7 @@ import { CheckoutItemContainer,ImageContainer,BaseSpan,Quantity,Arrow,Value,Remo
       &#10095; 
       </Arrow>
       </Quantity>
-      <span className='price'>{price}</span>
+      <Value>{price}</Value>
       <RemoveButton onClick={clearItemHandler}> &#10005;</RemoveButton>
       </CheckoutItemContainer>
     
