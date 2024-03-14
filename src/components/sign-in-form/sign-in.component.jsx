@@ -33,7 +33,7 @@ const SignInForm = () => {
     event.preventDefault(); // Etkinlik nesnesini almak için fonksiyon parametresini ekledik
     
     try {
-      const {user} = await signInAuthUserWithEmailAndPassword(
+      await signInAuthUserWithEmailAndPassword(
         email,
         password
         );
