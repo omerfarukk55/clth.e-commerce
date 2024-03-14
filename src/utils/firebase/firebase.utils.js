@@ -22,7 +22,7 @@ const firebaseConfig = {
   appId: "1:505464335609:web:15e06dc0f63823f48f0628",
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 //setcustom amacı sağlayıcı ile her etkileşime girdiğinde
 //onu her zaman bir bir hesap seçmeye zorlamak

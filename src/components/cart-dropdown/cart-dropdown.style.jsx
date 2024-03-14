@@ -21,7 +21,7 @@ export const  CartDropdownContainer = styled.div`
         padding: 0;
     }
 `
-export const emptyMesage = styled.span`
+export const EmptyMesage = styled.span`
   font-size: 18px;
         margin: 50px auto;
 `
