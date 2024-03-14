@@ -4,7 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form.input.component";
-import "./sign-up-form.styles.scss";
+import { SıgnUp } from "./sign-up-form.styles";
 import Button from "../button/button.component";
 
 const defaultFormFields = {
@@ -54,7 +54,7 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
   return (
-    <div className="sign-up-container">
+    <SıgnUp>
       <h2>Hesabınız yok mu ?</h2>
       <span>Hesap oluşturun kutucukları doldurunuz  </span>
       <form onSubmit={handleSubmit}>
@@ -94,7 +94,7 @@ const SignUpForm = () => {
         />
         <Button type="submit">kayıt ol</Button>
       </form>
-    </div>
+    </SıgnUp>
   );
 };
 export default SignUpForm;

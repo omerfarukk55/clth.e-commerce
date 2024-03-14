@@ -9,7 +9,7 @@ import {
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
-import "./sign-in-form.scss";
+import { SıgnIn, ButtonContainer } from "./sign-in-form";
 
 
 const defaultFormFields = {
@@ -65,7 +65,7 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
   return (
-    <div className="sign-in-container">
+    <SıgnIn>
       <span>Hesabınız zaten var mı </span>
       <h2>Email ve Şifre ile Giriş yapınız </h2>
       <form onSubmit={handleSubmit}>
@@ -83,14 +83,14 @@ const SignInForm = () => {
           name="password"
           value={password}
         />
-        <div className="buttons-container">
+        <ButtonContainer>
           <Button type="submit">giriş</Button>
           <Button buttonType={BUTTON_TYPE_CLASSES.google}onClick={signInWithGoogle}>
             GOOGLE İLE GİRİŞ
           </Button>
-        </div>
+        </ButtonContainer>
       </form>
-    </div>
+    </SıgnIn>
   );
 };
 export default SignInForm;
