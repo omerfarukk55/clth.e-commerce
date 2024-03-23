@@ -1,3 +1,7 @@
+# web sitesini ziyaret etmek isterseniz linki 
+- https://ubiquitous-paprenjak-32b569.netlify.app
+
+
 # clth_e-commerce
 
 Bu proje, React kullanılarak oluşturulmuş bir e-ticaret web sitesidir. Kullanıcılar, giyim ürünlerini görüntüleyebilir, sepete ekleyebilir ve satın alabilir. Firebase Authentication ve Firestore kullanılarak kullanıcı hesapları yönetilir ve veritabanı işlemleri gerçekleştirilir.
